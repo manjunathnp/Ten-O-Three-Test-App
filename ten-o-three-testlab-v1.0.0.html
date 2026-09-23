@@ -113,7 +113,7 @@ a { color: var(--accent); }
 .topbar-btn:hover { background: rgba(255,255,255,.17); }
 
 /* ---------- Shell ---------- */
-.shell { display: grid; grid-template-columns: var(--sidebar-w) 1fr; min-height: calc(100vh - var(--topbar-h)); }
+.shell { display: grid; grid-template-columns: var(--sidebar-w) 1fr; grid-template-rows: 1fr auto; min-height: calc(100vh - var(--topbar-h)); }
 
 /* ---------- Sidebar ---------- */
 .sidebar {
@@ -159,6 +159,18 @@ a { color: var(--accent); }
 /* ---------- Main ---------- */
 .main { padding: 30px 32px 70px; display: flex; justify-content: center; }
 .main-inner { width: 100%; max-width: 880px; }
+
+.app-footer {
+  grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; gap: 14px 24px;
+  padding: 13px 24px; border-top: 1px solid var(--border); background: var(--surface);
+  color: var(--ink-2); font-size: 11.5px; line-height: 1.45;
+}
+.app-footer-copy { display: inline-flex; align-items: baseline; gap: 7px; flex-wrap: wrap; }
+.app-footer-copy strong { color: var(--ink); font-weight: 680; }
+.app-footer-links { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
+.app-footer a { color: var(--accent); font-weight: 620; text-decoration: none; }
+.app-footer a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.app-footer a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
 
 .crumb { font-size: 11.5px; letter-spacing: .09em; text-transform: uppercase; color: var(--ink-3); font-weight: 650; margin-bottom: 10px; }
 .card {
@@ -482,6 +494,7 @@ textarea.ctrl { min-height: 78px; resize: vertical; }
   .sum-rows { grid-template-columns: 1fr; }
   .sum-k { border-bottom: 0; padding-bottom: 0; background: #fff; }
   .decl-row { flex-direction: column; gap: 9px; }
+  .app-footer { padding-inline: 18px; }
 }
 @media (max-width: 860px) {
   .brand-sub { display: none; }
@@ -498,6 +511,8 @@ textarea.ctrl { min-height: 78px; resize: vertical; }
   .card-foot { flex-wrap: wrap; }
   .card-foot .foot-note { order: 5; flex: 1 0 100%; }
   .card-foot .btn { flex: 1 1 auto; }
+  .app-footer { align-items: flex-start; flex-direction: column; gap: 8px; padding: 12px 16px; }
+  .app-footer-links { gap: 12px; }
 }
 
 /* ============================================================
@@ -540,6 +555,9 @@ textarea.ctrl { min-height: 78px; resize: vertical; }
   border: 1px solid var(--border); padding: 1px 5px; border-radius: 4px; color: var(--ink);
 }
 .auth-foot { text-align: center; color: #93a9c6; font-size: 12px; margin: 18px 0 0; line-height: 1.6; }
+.auth-foot a { color: #c7d8ef; font-weight: 620; text-decoration: none; }
+.auth-foot a:hover { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+.auth-foot a:focus-visible { outline: 2px solid #8bb8f3; outline-offset: 3px; border-radius: 2px; }
 .auth-count { color: #7f97b8; }
 
 /* signed-in chip in the top bar */
@@ -814,7 +832,7 @@ textarea.ctrl { min-height: 78px; resize: vertical; }
       </div>
       <form class="auth-body" id="authForm" novalidate autocomplete="off"></form>
     </div>
-    <p class="auth-foot">Demo application. Accounts are stored in this browser only.<br><span class="auth-count" id="authCount" data-testid="auth-user-count"></span></p>
+    <p class="auth-foot">Demo application. Accounts are stored in this browser only.<br>Developed by <a href="https://manjunathnp.in" target="_blank" rel="noopener noreferrer">Manjunath N P</a> · <span class="auth-count" id="authCount" data-testid="auth-user-count"></span></p>
   </div>
 </div>
 
@@ -837,6 +855,14 @@ textarea.ctrl { min-height: 78px; resize: vertical; }
 <div class="shell">
   <aside class="sidebar" id="sidebar" data-testid="sidebar"></aside>
   <main class="main" id="main" data-testid="main"></main>
+  <footer class="app-footer" data-testid="app-footer">
+    <span class="app-footer-copy">Ten-O-Three TestLab <span aria-hidden="true">·</span> Developed by <strong>Manjunath N P</strong></span>
+    <nav class="app-footer-links" aria-label="Developer links">
+      <a href="https://manjunathnp.in" target="_blank" rel="noopener noreferrer">Website</a>
+      <a href="https://www.linkedin.com/in/manjunathnp/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/manjunathnp" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </nav>
+  </footer>
 </div>
 </div>
 
